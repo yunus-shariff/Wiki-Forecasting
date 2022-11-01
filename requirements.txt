@@ -1,0 +1,7 @@
+matplotlib
+missingno
+numpy
+pandas
+seaborn
+streamlit
+tqdm
