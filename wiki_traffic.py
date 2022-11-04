@@ -52,7 +52,7 @@ trends = st.container()
 #     dataset_found = pd.read_csv(filename)
 #     return dataset_found
     
-wiki = pd.read_csv('/Users/y-unus/Documents/FS2022_Classes/CMSE830 - Foundations of DS/Data Science/Project Files/train_1.csv')
+wiki = pd.read_csv('train_1.csv')
 org_wiki = wiki.copy()
 
 
