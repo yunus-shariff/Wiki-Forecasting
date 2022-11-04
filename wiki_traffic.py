@@ -52,7 +52,7 @@ trends = st.container()
 #     dataset_found = pd.read_csv(filename)
 #     return dataset_found
     
-wiki = pd.read_csv('train_1.csv')
+wiki = pd.read_csv('https://media.githubusercontent.com/media/yunus-shariff/Wiki-Forecasting/main/train_1.csv')
 org_wiki = wiki.copy()
 
 
