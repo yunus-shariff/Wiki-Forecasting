@@ -1,1 +1,1 @@
-web: sh setup.sh && streamlit run wiki_traffic.py
+web: sh setup.sh && streamlit run wiki_traffic.py --server.enableXsrfProtection=false
