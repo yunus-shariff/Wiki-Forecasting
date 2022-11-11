@@ -228,7 +228,7 @@ with features:
     sel_col2, disp_col2 = st.columns(2)
     
     st.markdown('#### See how it works:')
-    row_num = sel_col2.number_input('Would you like to try this? Please enter a number between 0 and 145063',value =13335)
+    row_num = sel_col2.number_input('Would you like to try this? Please enter a number between 0 and 145063',value =13)
 
 ###################
 
