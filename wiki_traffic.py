@@ -216,7 +216,7 @@ with features:
     st.text("As seen above, we are dealing with panel data, where many subjects are observed over a specified duration.")
     st.text("The pages have an interesting trend, which we can use to retrieve additional information for our narrative. \n Consider the example below:")
     pd.options.display.max_colwidth = 80
-    wiki.iloc[9999:10000, :1]
+    wiki.iloc[19:20, :1]
     
     st.markdown('#### Observations:')
     st.markdown("- Oathbreaker_(Game_of_Thrones) = `page name`")
