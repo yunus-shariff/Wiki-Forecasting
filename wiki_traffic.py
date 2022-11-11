@@ -52,7 +52,7 @@ trends = st.container()
 #     dataset_found = pd.read_csv(filename)
 #     return dataset_found
     
-wiki = pd.read_csv('https://media.githubusercontent.com/media/yunus-shariff/Wiki-Forecasting/main/sample_set.csv')
+wiki = pd.read_csv('https://media.githubusercontent.com/media/yunus-shariff/Wiki-Forecasting/main/sample.csv')
 org_wiki = wiki.copy()
 
 
