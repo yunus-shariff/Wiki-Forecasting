@@ -1,4 +1,5 @@
-matplotli<3.6.1
+hiplot==0.1.33
+matplotlib<3.6.1
 missingno==0.5.1
 numpy==1.23.3
 pandas==1.5.0
