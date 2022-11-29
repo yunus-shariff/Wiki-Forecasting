@@ -27,6 +27,7 @@ from tqdm import tqdm
 # from statsmodels.graphics.tsaplots import plot_acf
 import datetime 
 import calendar
+import hiplot as hip
 
 header  = st.container()
 dataset = st.container()
@@ -52,7 +53,8 @@ trends = st.container()
 #     dataset_found = pd.read_csv(filename)
 #     return dataset_found
     
-wiki = pd.read_csv('https://media.githubusercontent.com/media/yunus-shariff/Wiki-Forecasting/main/sample.csv')
+
+wiki = pd.read_csv('https://github.com/yunus-shariff/Wiki-Forecasting/blob/main/train_1.csv')
 org_wiki = wiki.copy()
 
 
@@ -349,6 +351,8 @@ with trends:
     plt.ylabel('Total traffic(10^8)')
     plt.legend(labels =['Chinese','Spanish','French','Russian','English','NA','German','Japanese'])
     st.pyplot(fig)
+    
+    hip.Experiment.from_csv(lang_dict)
     
     st.markdown("The Media audience contributes the most in terms of traffic even though the number of media articles is tied for fourth place")
     st.markdown("Although there are a lot more inferences to be drawn in terms of languages and a combination of access type, let's answer some burning questions!")
