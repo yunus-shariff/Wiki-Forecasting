@@ -27,6 +27,7 @@ from tqdm import tqdm
 # from statsmodels.graphics.tsaplots import plot_acf
 import datetime 
 import calendar
+import hiplot as hip
 
 header  = st.container()
 dataset = st.container()
@@ -311,6 +312,8 @@ with features:
         vals = list(agent_dict.values())
         sns.barplot(wiki, x =keys, y = vals, hue = keys, palette = 'RdPu')
         st.pyplot(fig)
+        
+        hip.Experiment.from_csv('https://media.githubusercontent.com/media/yunus-shariff/Wiki-Forecasting/main/train_1.csv')
         
 with trends:
     # lang_dict = lang_dict_copy
