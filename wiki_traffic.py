@@ -77,7 +77,7 @@ def strip_info(page, index):
             wiki.loc[index,'Access_Type'] = match.group(2)
             wiki.loc[index,'Agent_Type'] = match.group(3)
 
-wiki = get_data('https://media.githubusercontent.com/media/yunus-shariff/Wiki-Forecasting/main/train_1.csv')
+wiki = get_data('https://media.githubusercontent.com/media/yunus-shariff/Wiki-Forecasting/main/train_1%20copy.csv')
 org_wiki = wiki.copy()
 
 
