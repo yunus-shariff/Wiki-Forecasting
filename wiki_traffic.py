@@ -52,7 +52,7 @@ def get_data():
     dataset_found = pd.read_csv('https://media.githubusercontent.com/media/yunus-shariff/Wiki-Forecasting/main/train_1.csv') 
     return dataset_found
     
-wiki = pd.read_csv()
+wiki = get_data()
 org_wiki = wiki.copy()
 
 
