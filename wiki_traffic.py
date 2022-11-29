@@ -47,7 +47,7 @@ trends = st.container()
 #     unsafe_allow_html = True
 #     )
 
-@st.cache(allow_output_mutation=True)
+@st.cache()
 def get_data():
     dataset_found = pd.read_csv('https://media.githubusercontent.com/media/yunus-shariff/Wiki-Forecasting/main/train_1.csv') 
     return dataset_found
