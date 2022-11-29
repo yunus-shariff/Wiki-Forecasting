@@ -54,7 +54,7 @@ trends = st.container()
 #     return dataset_found
     
 
-wiki = pd.read_csv('https://github.com/yunus-shariff/Wiki-Forecasting/blob/main/train_1.csv')
+wiki = pd.read_csv('https://media.githubusercontent.com/media/yunus-shariff/Wiki-Forecasting/main/train_1.csv')
 org_wiki = wiki.copy()
 
 
@@ -352,7 +352,7 @@ with trends:
     plt.legend(labels =['Chinese','Spanish','French','Russian','English','NA','German','Japanese'])
     st.pyplot(fig)
     
-    hip.Experiment.from_csv(lang_dict)
+    hip.Experiment.from_csv('https://media.githubusercontent.com/media/yunus-shariff/Wiki-Forecasting/main/train_1.csv')
     
     st.markdown("The Media audience contributes the most in terms of traffic even though the number of media articles is tied for fourth place")
     st.markdown("Although there are a lot more inferences to be drawn in terms of languages and a combination of access type, let's answer some burning questions!")
