@@ -54,8 +54,8 @@ def get_data(filename):
     return dataset_found
 
 
-    wiki = get_data('https://media.githubusercontent.com/media/yunus-shariff/Wiki-Forecasting/main/train_1.csv')
-    org_wiki = wiki.copy()
+wiki = get_data('https://media.githubusercontent.com/media/yunus-shariff/Wiki-Forecasting/main/train_1.csv')
+org_wiki = wiki.copy()
 
 
 
