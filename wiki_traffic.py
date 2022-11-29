@@ -314,7 +314,7 @@ with features:
         st.pyplot(fig)
      
         
-    wiki_sample = wiki.iloc[:500,:5].copy() 
+    wiki_sample = wiki.iloc[:500,:4].copy() 
     @st.cache
     def get_experiment():
        
