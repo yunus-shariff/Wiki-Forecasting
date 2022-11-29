@@ -48,7 +48,7 @@ trends = st.container()
 #     unsafe_allow_html = True
 #     )
 
-@st.cache
+
 def get_data(filename):
     dataset_found = pd.read_csv(filename)
     return dataset_found
