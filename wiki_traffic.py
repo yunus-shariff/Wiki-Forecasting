@@ -27,7 +27,7 @@ from tqdm import tqdm
 # from statsmodels.graphics.tsaplots import plot_acf
 import datetime 
 import calendar
-import hiplot as hip
+# import hiplot as hip
 
 header  = st.container()
 dataset = st.container()
@@ -314,18 +314,18 @@ with features:
         st.pyplot(fig)
      
         
-    wiki_sample = wiki.iloc[:500,:4].copy() 
-    @st.cache
-    def get_experiment():
+    # wiki_sample = wiki.iloc[:500,:4].copy() 
+    # @st.cache
+    # def get_experiment():
        
-        exp = hip.Experiment.from_dataframe(wiki_sample)
-        exp._compress = True
-    # ... convert it to streamlit and cache that (`@st.cache` decorator)
-        return exp.to_streamlit(key="hiplot")
+    #     exp = hip.Experiment.from_dataframe(wiki_sample)
+    #     exp._compress = True
+    # # ... convert it to streamlit and cache that (`@st.cache` decorator)
+    #     return exp.to_streamlit(key="hiplot")
         
     
-    xp = get_experiment()  # This will be cached the second time
-    xp.display()
+    # xp = get_experiment()  # This will be cached the second time
+    # xp.display()
         
         
 with trends:
