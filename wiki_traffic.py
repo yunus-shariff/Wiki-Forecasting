@@ -27,7 +27,7 @@ from tqdm import tqdm
 # from statsmodels.graphics.tsaplots import plot_acf
 import datetime 
 import calendar
-# import hiplot as hip
+import hiplot as hip
 
 header  = st.container()
 dataset = st.container()
@@ -49,10 +49,29 @@ trends = st.container()
 #     )
 
 
-def get_data(filename):
-    dataset_found = pd.read_csv(filename)
-    return dataset_found
+# def get_data(filename):
+#     dataset_found = pd.read_csv(filename)
+#     return dataset_found
 
+
+
+wiki =  pd.read_csv('https://media.githubusercontent.com/media/yunus-shariff/Wiki-Forecasting/main/train_1%20copy.csv')
+org_wiki = wiki.copy()
+
+
+
+with header:
+    st.title('CMSE830 - Midterm Project')
+    st.subheader('Author: Yunus Shariff')
+    st.text("The project aims to use Wikipedia's traffic between July 2015 and Dec 2016,")
+    st.text("to retrieve statistical information to identify trends in user traffic.")
+    st.text("There is a lot that could have been accomplished with this dataset.")
+    st.text("I chose to focus on monitoring daily traffic to identify patterns to help boost user")
+    st.text("visits.")
+
+#######################
+# Code Block 1 begins
+    
 def strip_info(page, index):
     
     match = re.search(r'(\S+).wiki.edia.org_(\S+)_(\S+)',page)
@@ -76,25 +95,6 @@ def strip_info(page, index):
             wiki.loc[index,'Language'] = 'N/A'
             wiki.loc[index,'Access_Type'] = match.group(2)
             wiki.loc[index,'Agent_Type'] = match.group(3)
-
-wiki = get_data('https://media.githubusercontent.com/media/yunus-shariff/Wiki-Forecasting/main/train_1%20copy.csv')
-org_wiki = wiki.copy()
-
-
-
-with header:
-    st.title('CMSE830 - Midterm Project')
-    st.subheader('Author: Yunus Shariff')
-    st.text("The project aims to use Wikipedia's traffic between July 2015 and Dec 2016,")
-    st.text("to retrieve statistical information to identify trends in user traffic.")
-    st.text("There is a lot that could have been accomplished with this dataset.")
-    st.text("I chose to focus on monitoring daily traffic to identify patterns to help boost user")
-    st.text("visits.")
-
-#######################
-# Code Block 1 begins
-    
-
 
 for i in range(len(wiki)):
     strip_info(wiki.loc[i,'Page'], i)
@@ -315,18 +315,16 @@ with features:
         st.pyplot(fig)
      
         
-    # wiki_sample = wiki.iloc[:500,:4].copy() 
-    # @st.cache
-    # def get_experiment():
+    def get_experiment():
        
-    #     exp = hip.Experiment.from_dataframe(wiki_sample)
-    #     exp._compress = True
-    # # ... convert it to streamlit and cache that (`@st.cache` decorator)
-    #     return exp.to_streamlit(key="hiplot")
+        exp = hip.Experiment.from_dataframe(wiki)
+        exp._compress = True
+    # ... convert it to streamlit and cache that (`@st.cache` decorator)
+        return exp.to_streamlit(key="hiplot")
         
     
-    # xp = get_experiment()  # This will be cached the second time
-    # xp.display()
+    xp = get_experiment()  # This will be cached the second time
+    xp.display()
         
         
 with trends:
