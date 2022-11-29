@@ -27,7 +27,6 @@ from tqdm import tqdm
 # from statsmodels.graphics.tsaplots import plot_acf
 import datetime 
 import calendar
-import hiplot as hip
 
 header  = st.container()
 dataset = st.container()
@@ -48,14 +47,12 @@ trends = st.container()
 #     unsafe_allow_html = True
 #     )
 
-
+# @st.cache(allow_output_mutation=True)
 # def get_data(filename):
 #     dataset_found = pd.read_csv(filename)
 #     return dataset_found
-
-
-
-wiki =  pd.read_csv('https://media.githubusercontent.com/media/yunus-shariff/Wiki-Forecasting/main/train_1%20copy.csv')
+    
+wiki = pd.read_csv('https://media.githubusercontent.com/media/yunus-shariff/Wiki-Forecasting/main/train_1.csv')
 org_wiki = wiki.copy()
 
 
@@ -219,7 +216,7 @@ with features:
     st.text("As seen above, we are dealing with panel data, where many subjects are observed over a specified duration.")
     st.text("The pages have an interesting trend, which we can use to retrieve additional information for our narrative. \n Consider the example below:")
     pd.options.display.max_colwidth = 80
-    wiki.iloc[19:20, :1]
+    wiki.iloc[9999:10000, :1]
     
     st.markdown('#### Observations:')
     st.markdown("- Oathbreaker_(Game_of_Thrones) = `page name`")
@@ -313,19 +310,6 @@ with features:
         vals = list(agent_dict.values())
         sns.barplot(wiki, x =keys, y = vals, hue = keys, palette = 'RdPu')
         st.pyplot(fig)
-     
-        
-    def get_experiment():
-       
-        exp = hip.Experiment.from_dataframe(wiki)
-        exp._compress = True
-    # ... convert it to streamlit and cache that (`@st.cache` decorator)
-        return exp.to_streamlit(key="hiplot")
-        
-    
-    xp = get_experiment()  # This will be cached the second time
-    xp.display()
-        
         
 with trends:
     # lang_dict = lang_dict_copy
@@ -365,7 +349,6 @@ with trends:
     plt.ylabel('Total traffic(10^8)')
     plt.legend(labels =['Chinese','Spanish','French','Russian','English','NA','German','Japanese'])
     st.pyplot(fig)
-
     
     st.markdown("The Media audience contributes the most in terms of traffic even though the number of media articles is tied for fourth place")
     st.markdown("Although there are a lot more inferences to be drawn in terms of languages and a combination of access type, let's answer some burning questions!")
@@ -436,7 +419,7 @@ with trends:
     
     for i in range(len(month)):
         month[i]=np.median(month[i])
-    st.write('Average number of visitors during the holidays:', month[0])    
+    st.write('Average number of visitors during the holidays:', month)    
     
 # with model_training:
     
