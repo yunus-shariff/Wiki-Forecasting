@@ -230,7 +230,7 @@ with features:
     sel_col2, disp_col2 = st.columns(2)
     
     st.markdown('#### See how it works:')
-    row_num = sel_col2.number_input('Would you like to try this? Please enter a number between 0 and 145063',value =13)
+    row_num = sel_col2.number_input('Would you like to try this? Please enter a number between 0 and 145063',value =13335)
 
 ###################
 
@@ -312,8 +312,21 @@ with features:
         vals = list(agent_dict.values())
         sns.barplot(wiki, x =keys, y = vals, hue = keys, palette = 'RdPu')
         st.pyplot(fig)
+     
         
-        hip.Experiment.from_csv('https://media.githubusercontent.com/media/yunus-shariff/Wiki-Forecasting/main/train_1.csv')
+    wiki_sample = wiki.iloc[:500,:5].copy() 
+    @st.cache
+    def get_experiment():
+       
+        exp = hip.Experiment.from_dataframe(wiki_sample)
+        exp._compress = True
+    # ... convert it to streamlit and cache that (`@st.cache` decorator)
+        return exp.to_streamlit(key="hiplot")
+        
+    
+    xp = get_experiment()  # This will be cached the second time
+    xp.display()
+        
         
 with trends:
     # lang_dict = lang_dict_copy
@@ -424,7 +437,7 @@ with trends:
     
     for i in range(len(month)):
         month[i]=np.median(month[i])
-    st.write('Average number of visitors during the holidays:', month)    
+    st.write('Average number of visitors during the holidays:', month[0])    
     
 # with model_training:
     
