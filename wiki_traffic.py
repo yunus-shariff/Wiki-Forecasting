@@ -48,14 +48,14 @@ trends = st.container()
 #     unsafe_allow_html = True
 #     )
 
-# @st.cache(allow_output_mutation=True)
-# def get_data(filename):
-#     dataset_found = pd.read_csv(filename)
-#     return dataset_found
-    
+@st.cache(allow_output_mutation=True)
+def get_data(filename):
+    dataset_found = pd.read_csv(filename)
+    return dataset_found
 
-wiki = pd.read_csv('https://media.githubusercontent.com/media/yunus-shariff/Wiki-Forecasting/main/train_1.csv')
-org_wiki = wiki.copy()
+
+    wiki = get_data('https://media.githubusercontent.com/media/yunus-shariff/Wiki-Forecasting/main/train_1.csv')
+    org_wiki = wiki.copy()
 
 
 
